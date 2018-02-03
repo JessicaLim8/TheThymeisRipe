@@ -59,7 +59,7 @@ function displayOutput(allerg, dietres, mealchoices, donthave, have) {
 
     console.log(endURL);
 
-    endURL = endURL + "&limitLicense=true&number=20&ranking=1";
+    endURL = endURL + "&limitLicense=true&number=2&ranking=1";
 
     console.log(endURL);
 
@@ -85,8 +85,14 @@ function displayOutput(allerg, dietres, mealchoices, donthave, have) {
     $.ajax({
          url: endURL,
          type: "GET",
-         beforeSend: function(xhr){xhr.setRequestHeader('X-Mashape-Key', 'sExkeLj1nvmshqHUbsHTOOYqORUcp19f2zDjsnbyeXK02jxgKw');},
-         success: function() { alert('Success!' + authHeader); }
+         beforeSend: function(xhr){xhr.setRequestHeader('X-Mashape-Key', '5InmjaVBTlmshELCeDfhJIEkGSvgp1f4qI6jsnEHo4cgCNfcZT');},
+         success: function(result) {
+           console.log(result);
+           /*for (var x = 0; x < result.length; x++) {
+             JSON.parse(result[x]);
+         }*/
+           //document.getElementbyId("demo").innerHTML = result[id] + "<br>";
+         }
       });
 
     return(endURL);
