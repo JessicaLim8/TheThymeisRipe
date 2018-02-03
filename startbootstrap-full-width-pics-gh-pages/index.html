@@ -49,8 +49,8 @@
     </nav>
 
     <!-- Header - set the background image for the header in the line below -->
-    <header class="py-5 bg-image-full" style="background-image: url('https://unsplash.it/1900/1080?image=1076');">
-      <img class="img-fluid d-block mx-auto" src="http://placehold.it/200x200&text=Logo" alt="">
+    <header class="py-5 bg-image-full" style="background-image: url('https://png.pngtree.com/thumb_back/fw800/back_pic/03/89/44/4157d90b2ba3fdb.jpg');" >
+      <img class="img-fluid d-block mx-auto" src="logo.png" alt="The Thyme is Ripe" width = "400" height = "400" id = "logo" >
     </header>
 
     <!-- Content section -->
@@ -58,16 +58,24 @@
       <div class="container">
         <h1>Find Recipes</h1>
 	<!-- <p class="lead">Enter the Available</p> -->
-        <p>Enter available ingredients separated by commas:</p>
-		<input type="text" id="myText" value="Available Ingredient">
-
-		<!--Get ingredients from user-->
+       
+	   <!--Get ingredients from user--> 
+		<p>Enter available ingredients separated by commas:</p>
+		<input type="text" id="apply" value="Available Ingredients">
+		<!--<button onclick="applyIngredients()">Apply Ingredients</button>--> 
+		
+		
+		<!--Get ingredients to avoid from user-->
 		<br>
-		<button onclick="applyIngredients()">Apply Ingredients</button>
-
-		<!-- Get restrictions from user-->
+		<br>
+		<p>Enter ingredients to avoid separated by commas:</p>
+		<input type="text" id="avoid" value="Ingredients to Avoid">
+		
+		<!--<button onclick="applyAvoidIngredients()">Apply Ingredient Restrictions</button>-->
+		
 		<br>
 		<br>
+		<!-- Get dietary restrictions from user-->
 		<p> Select any Dietary restrictions that apply:</p>
 		Pescetarian: <input type="checkbox" id="pes">
 		Lactovegetarian: <input type="checkbox" id="lactoveg">
@@ -77,15 +85,40 @@
 		Primal: <input type="checkbox" id="primal">
 		Vegetarian <input type="checkbox" id="veg">
 
+		<!--<button onclick="applyRestriction()">Apply Dietary Restrictions</button>-->
+		
 		<br>
-		<button onclick="applyRestriction()">Apply Restrictions</button>
-
+		<br>
+		<!-- Get allergies restrictions from user-->
+		<p> Select any Allergies that apply:</p>
+		Dairy: <input type="checkbox" id="dairy">
+		Eggs: <input type="checkbox" id="egg">
+		Gluten: <input type="checkbox" id="gluten">
+		Peanut: <input type="checkbox" id="peanut">
+		Sesame: <input type="checkbox" id="sesame">
+		Seafood: <input type="checkbox" id="seafood">
+		Shellfish: <input type="checkbox" id="shellfish">
+		Soy: <input type="checkbox" id="soy">
+		Sulfite: <input type="checkbox" id="sulfite">
+		Treenut: <input type="checkbox" id="treenut">
+		Wheat: <input type="checkbox" id="wheat">
+		
+		<br>
+		<!--<button onclick="applyAllergy()">Apply Allergy Restrictions</button>-->
+		
 		<!-- Tests the functions-->
-		<button onclick="myFunction2()">test restrictions</button>
+		<!--<button onclick="myFunction2()">test restrictions</button>
 		<button onclick="myFunction3()">test ingredients</button>
+		<button onclick="myFunction4()">test avoid ingredients</button>
+		<button onclick="myFunction5()">test allergy</button>-->
+		
+		<p id="test2"></p>
+		<p id="test3"></p>
+		<p id="test4"></p>
+		<p id="test5"></p>
+		
 		<p id="demo"></p>
 		<p id="demo2"></p>
-
 		<p id="demo3"></p>
 		<p id="demo4"></p>
 
@@ -116,6 +149,30 @@
 
 
 <script>
+	function applyIngredients()
+	{
+		var ingredients = document.getElementById("apply").value;
+		return ingredients;
+	}
+	
+	// test function, delete after
+	function myFunction3()
+	{
+		document.getElementById("test2").innerHTML = applyIngredients();
+	}
+	
+	function applyAvoidIngredients()
+	{
+		var ingredients = document.getElementById("avoid").value;
+		return ingredients;
+	}
+	
+	// test function, delete after
+	function myFunction4()
+	{
+		document.getElementById("test3").innerHTML = applyAvoidIngredients();
+	}
+	
 	function applyRestriction()
 	{
 		var array = [7];
@@ -138,30 +195,59 @@
  // test function, delete after
 	function myFunction2()
 	{
-		document.getElementById("demo").innerHTML = applyRestriction().toString();
+		document.getElementById("test4").innerHTML = applyRestriction().toString();
 	}
-	function applyIngredients()
+	
+	function applyAllergy()
 	{
-		var ingredients = document.getElementById("myText").value;
-		return ingredients;
+		var array = [11];
+	
+		var dairyBool = document.getElementById("dairy").checked;
+		array[0] = dairyBool;
+		var eggBool = document.getElementById("egg").checked;
+		array[1] = eggBool;
+		var glutenBool = document.getElementById("gluten").checked;
+		array[2] = glutenBool;
+		var peanutBool = document.getElementById("peanut").checked;
+		array[3] = peanutBool;
+		var sesameBool = document.getElementById("sesame").checked;
+		array[4] = sesameBool;
+		var seafoodBool = document.getElementById("seafood").checked;
+		array[5] = seafoodBool;
+		var shellfishBool = document.getElementById("shellfish").checked;
+		array[6] = shellfishBool;
+		var soyBool = document.getElementById("soy").checked;
+		array[7] = soyBool;
+		var sulfiteBool = document.getElementById("sulfite").checked;
+		array[8] = sulfiteBool;
+		var treenutBool = document.getElementById("treenut").checked;
+		array[9] = treenutBool;
+		var wheatBool = document.getElementById("wheat").checked;
+		array[10] = wheatBool;
+		return array;
 	}
-// test function, delete after
-	function myFunction3()
+	
+	// test function, delete after
+	function myFunction5()
 	{
-		document.getElementById("demo2").innerHTML = applyIngredients();
+		document.getElementById("test5").innerHTML = applyAllergy().toString();
 	}
+	
 	function findRecipes()
 	{
 		//calls recipe API
 		var ingredients = applyIngredients();
-		var restrictions = applyRestriction()
-    var allerg = [false, false, false, false, false, false, true, false, false, true, true];
-    var dietres = [false, false, true, false, false, false, true];
+		var donthave = applyAvoidIngredients() ;
+		var restrictions = applyRestriction();
+		var allerg = applyAllergy();
     var mealchoices = [false, false, false, false, false, false, false, false, false, false, false];
-    var donthave = "egg, tomato";
-		document.getElementById("demo3").innerHTML = ingredients;
-		document.getElementById("demo4").innerHTML = restrictions.toString();
-    var x = displayOutput(allerg, restrictions , mealchoices, donthave, ingredients);
+    
+		document.getElementById("demo").innerHTML = ingredients;
+		document.getElementById("demo2").innerHTML = donthave;
+		document.getElementById("demo3").innerHTML = restrictions.toString();
+		document.getElementById("demo4").innerHTML = allerg.toString();
+    
+	var x = displayOutput(allerg, restrictions , mealchoices, donthave, ingredients);
     console.log(x);
 	}
 </script>
