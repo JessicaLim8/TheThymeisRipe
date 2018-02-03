@@ -63,36 +63,35 @@
 
 		<!--Get ingredients from user-->
 		<br>
-		<button onclick="findRecipe()">Apply Ingredients</button>
-		
+		<button onclick="applyIngredients()">Apply Ingredients</button>
+
 		<!-- Get restrictions from user-->
 		<br>
 		<br>
 		<p> Select any Dietary restrictions that apply:</p>
 		Dairy Free: <input type="checkbox" id="dairy">
 		Gluten Free: <input type="checkbox" id="gluten">
-		High Protein <input type="checkbox" id="protein">
 		Low Carb: <input type="checkbox" id="carb">
 		Low Sodium: <input type="checkbox" id="sodium">
 		Pescetarian: <input type="checkbox" id="pes">
 		Vegan: <input type="checkbox" id="vegan">
 		Vegetarian <input type="checkbox" id="veg">
-		
+
 		<br>
 		<button onclick="applyRestriction()">Apply Restrictions</button>
-		
+
 		<!-- Tests the functions-->
 		<button onclick="myFunction2()">test restrictions</button>
 		<button onclick="myFunction3()">test ingredients</button>
 		<p id="demo"></p>
 		<p id="demo2"></p>
-		
+
 		<p id="demo3"></p>
 		<p id="demo4"></p>
-		
+
 		<br>
 		<button onclick="findRecipes()">Find Recipes!</button>
-		
+
       </div>
     </section>
 
@@ -113,63 +112,70 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	
+    <script type="text/javascript" src=urlmaker.js></script>
+
+
 <script>
-	function applyRestriction() 
+	function applyRestriction()
 	{
-		var array = [8];
-		
+		var array = [7];
+
 		var dairyBool = document.getElementById("dairy").checked;
 		array [0] = dairyBool;
-		
+
 		var glutenBool = document.getElementById("gluten").checked;
 		array[1] = glutenBool;
 
-		var proteinBool = document.getElementById("protein").checked;
-		array[2] = proteinBool;
-		
 		var carbBool = document.getElementById("carb").checked;
-		array[3] = carbBool;
-		
+		array[2] = carbBool;
+
 		var sodiumBool = document.getElementById("sodium").checked;
-		array[4] = sodiumBool;
-		
+		array[3] = sodiumBool;
+
 		var pesBool = document.getElementById("pes").checked;
-		array[5] = pesBool;
-		
+		array[4] = pesBool;
+
 		var veganBool = document.getElementById("vegan").checked;
-		array[6] = veganBool;
-		
+		array[5] = veganBool;
+
 		var vegBool = document.getElementById("veg").checked;
-		array[7] = vegBool;
-		
+		array[6] = vegBool;
+
 		return array;
 	}
- 
+
  // test function, delete after
-	function myFunction2() 
+	function myFunction2()
 	{
 		document.getElementById("demo").innerHTML = applyRestriction().toString();
 	}
- 
-	function applyIngredients() 
+
+
+	function applyIngredients()
 	{
 		var ingredients = document.getElementById("myText").value;
 		return ingredients;
 	}
-// test function, delete after	
-	function myFunction3() 
+// test function, delete after
+	function myFunction3()
 	{
 		document.getElementById("demo2").innerHTML = applyIngredients();
 	}
-	
+
 	function findRecipes()
 	{
 		//calls recipe API
 		var ingredients = applyIngredients();
-		var restrictions = applyRestriction() 
+		var restrictions = applyRestriction()
+    var allerg = [false, false, false, false, false, false, true, false, false, true, true];
+    var dietres = [false, false, true, false, false, false, true];
+    var mealchoices = [false, false, false, false, false, false, false, false, false, false, false];
+    var donthave = "egg, tomato";
 		document.getElementById("demo3").innerHTML = ingredients;
 		document.getElementById("demo4").innerHTML = restrictions.toString();
+
+    var x = displayOutput(allerg, restrictions , mealchoices, donthave, ingredients);
+    console.log(x);
 	}
 </script>
 
