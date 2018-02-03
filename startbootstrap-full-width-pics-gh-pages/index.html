@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>The Thyme is Ripe</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/full-width-pics.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">The Thyme is Ripe</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">My Pantry</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Find Recipes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header - set the background image for the header in the line below -->
+    <header class="py-5 bg-image-full" style="background-image: url('https://unsplash.it/1900/1080?image=1076');">
+      <img class="img-fluid d-block mx-auto" src="http://placehold.it/200x200&text=Logo" alt="">
+    </header>
+
+    <!-- Content section -->
+    <section class="py-5">
+      <div class="container">
+        <h1>Find Recipes</h1>
+	<!-- <p class="lead">Enter the Available</p> -->
+        <p>Enter available ingredients separated by commas:</p>
+		<input type="text" id="myText" value="Available Ingredient">
+
+		<!--Get ingredients from user-->
+		<br>
+		<button onclick="findRecipe()">Apply Ingredients</button>
+		
+		<!-- Get restrictions from user-->
+		<br>
+		<br>
+		<p> Select any Dietary restrictions that apply:</p>
+		Dairy Free: <input type="checkbox" id="dairy">
+		Gluten Free: <input type="checkbox" id="gluten">
+		High Protein <input type="checkbox" id="protein">
+		Low Carb: <input type="checkbox" id="carb">
+		Low Sodium: <input type="checkbox" id="sodium">
+		Pescetarian: <input type="checkbox" id="pes">
+		Vegan: <input type="checkbox" id="vegan">
+		Vegetarian <input type="checkbox" id="veg">
+		
+		<br>
+		<button onclick="applyRestriction()">Apply Restrictions</button>
+		
+		<!-- Tests the functions-->
+		<button onclick="myFunction2()">test restrictions</button>
+		<button onclick="myFunction3()">test ingredients</button>
+		<p id="demo"></p>
+		<p id="demo2"></p>
+		
+		<p id="demo3"></p>
+		<p id="demo4"></p>
+		
+		<br>
+		<button onclick="findRecipes()">Find Recipes!</button>
+		
+      </div>
+    </section>
+
+    <!-- Image Section - set the background image for the header in the line below -->
+    <section class="py-5 bg-image-full" style="background-image: url('https://unsplash.it/1900/1080?image=1081');">
+      <!-- Put anything you want here! There is just a spacer below for demo purposes! -->
+      <div style="height: 200px;"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	
+<script>
+	function applyRestriction() 
+	{
+		var array = [8];
+		
+		var dairyBool = document.getElementById("dairy").checked;
+		array [0] = dairyBool;
+		
+		var glutenBool = document.getElementById("gluten").checked;
+		array[1] = glutenBool;
+
+		var proteinBool = document.getElementById("protein").checked;
+		array[2] = proteinBool;
+		
+		var carbBool = document.getElementById("carb").checked;
+		array[3] = carbBool;
+		
+		var sodiumBool = document.getElementById("sodium").checked;
+		array[4] = sodiumBool;
+		
+		var pesBool = document.getElementById("pes").checked;
+		array[5] = pesBool;
+		
+		var veganBool = document.getElementById("vegan").checked;
+		array[6] = veganBool;
+		
+		var vegBool = document.getElementById("veg").checked;
+		array[7] = vegBool;
+		
+		return array;
+	}
+ 
+ // test function, delete after
+	function myFunction2() 
+	{
+		document.getElementById("demo").innerHTML = applyRestriction().toString();
+	}
+ 
+	function applyIngredients() 
+	{
+		var ingredients = document.getElementById("myText").value;
+		return ingredients;
+	}
+// test function, delete after	
+	function myFunction3() 
+	{
+		document.getElementById("demo2").innerHTML = applyIngredients();
+	}
+	
+	function findRecipes()
+	{
+		//calls recipe API
+		var ingredients = applyIngredients();
+		var restrictions = applyRestriction() 
+		document.getElementById("demo3").innerHTML = ingredients;
+		document.getElementById("demo4").innerHTML = restrictions.toString();
+	}
+</script>
+
+  </body>
+
+</html>
