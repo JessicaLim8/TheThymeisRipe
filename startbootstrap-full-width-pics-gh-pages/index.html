@@ -69,12 +69,12 @@
 		<br>
 		<br>
 		<p> Select any Dietary restrictions that apply:</p>
-		Dairy Free: <input type="checkbox" id="dairy">
-		Gluten Free: <input type="checkbox" id="gluten">
-		Low Carb: <input type="checkbox" id="carb">
-		Low Sodium: <input type="checkbox" id="sodium">
 		Pescetarian: <input type="checkbox" id="pes">
+		Lactovegetarian: <input type="checkbox" id="lactoveg">
+		Ovovegetarian: <input type="checkbox" id="ovoveg">
 		Vegan: <input type="checkbox" id="vegan">
+		Paleo: <input type="checkbox" id="pal">
+		Primal: <input type="checkbox" id="primal">
 		Vegetarian <input type="checkbox" id="veg">
 
 		<br>
@@ -119,38 +119,27 @@
 	function applyRestriction()
 	{
 		var array = [7];
-
-		var dairyBool = document.getElementById("dairy").checked;
-		array [0] = dairyBool;
-
-		var glutenBool = document.getElementById("gluten").checked;
-		array[1] = glutenBool;
-
-		var carbBool = document.getElementById("carb").checked;
-		array[2] = carbBool;
-
-		var sodiumBool = document.getElementById("sodium").checked;
-		array[3] = sodiumBool;
-
 		var pesBool = document.getElementById("pes").checked;
-		array[4] = pesBool;
-
+		array [0] = pesBool;
+		var lactovegBool = document.getElementById("lactoveg").checked;
+		array[1] = lactovegBool;
+		var ovovegBool = document.getElementById("ovoveg").checked;
+		array[2] = ovovegBool;
 		var veganBool = document.getElementById("vegan").checked;
-		array[5] = veganBool;
-
+		array[3] = veganBool;
+		var palBool = document.getElementById("pal").checked;
+		array[4] = palBool;
+		var primalBool = document.getElementById("primal").checked;
+		array[5] = primalBool;
 		var vegBool = document.getElementById("veg").checked;
 		array[6] = vegBool;
-
 		return array;
 	}
-
  // test function, delete after
 	function myFunction2()
 	{
 		document.getElementById("demo").innerHTML = applyRestriction().toString();
 	}
-
-
 	function applyIngredients()
 	{
 		var ingredients = document.getElementById("myText").value;
@@ -161,7 +150,6 @@
 	{
 		document.getElementById("demo2").innerHTML = applyIngredients();
 	}
-
 	function findRecipes()
 	{
 		//calls recipe API
@@ -173,7 +161,6 @@
     var donthave = "egg, tomato";
 		document.getElementById("demo3").innerHTML = ingredients;
 		document.getElementById("demo4").innerHTML = restrictions.toString();
-
     var x = displayOutput(allerg, restrictions , mealchoices, donthave, ingredients);
     console.log(x);
 	}
