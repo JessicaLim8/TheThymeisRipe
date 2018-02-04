@@ -49,7 +49,7 @@ function displayOutput(allerg, dietres, mealchoices, donthave, have) {
       endURL = endURL + "&intolerances=" + intolorances;
     }
 
-    endURL = endURL + "&limitLicense=true&number=1&ranking=1";
+    endURL = endURL + "&limitLicense=true&number=3&ranking=1";
 
     var types = "";
     var courses = ['main course', 'side dish', 'dessert', 'appetizer', 'salad', 'bread', 'breakfast', 'soup', 'beverage', 'sauce', 'drink'];
@@ -79,9 +79,9 @@ function displayOutput(allerg, dietres, mealchoices, donthave, have) {
            console.log(result);
              var myJSON = JSON.stringify(result);
              var recipe = [3];
-             recipe[0] = JSON.results.0.title;
-             recipe[1] = JSON.results.0.image;
-             recipe[2] = JSON.results.0.spoonacularSourceUrl;
+             recipe[0] = JSON.(results.0.title);
+             recipe[1] = JSON.(results.0.image);
+             recipe[2] = JSON.(results.0.spoonacularSourceUrl);
              console.log(recipe[0]);
              console.log(recipe[1]);
              console.log(recipe[2]);
