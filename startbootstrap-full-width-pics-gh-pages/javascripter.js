@@ -81,6 +81,9 @@ function displayOutput(allerg, dietres, mealchoices, donthave, have) {
              recipe[0] = result.getElementById("title");
              recipe[1] = result.getElementById("image");
              recipe[2] = result.getElementById("spoonacularSourceUrl");
+             console.log(recipe[0]);
+             console.log(recipe[1]);
+             console.log(recipe[2]);
              return(recipe);
           }
       });
