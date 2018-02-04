@@ -1,4 +1,5 @@
 function displayOutput(allerg, dietres, mealchoices, donthave, have) {
+
     var endURL = "";
 
     var possibleConcerns = ['pescetarian', 'lactovegetarian', 'ovovegetarian', 'vegan', 'paleo', 'primal', 'vegetarian'];
@@ -58,7 +59,7 @@ function displayOutput(allerg, dietres, mealchoices, donthave, have) {
 
     console.log(endURL);
 
-    endURL = endURL + "&limitLicense=true&number=20&ranking=1";
+    endURL = endURL + "&limitLicense=true&number=2&ranking=1";
 
     console.log(endURL);
 
@@ -77,24 +78,23 @@ function displayOutput(allerg, dietres, mealchoices, donthave, have) {
       endURL = endURL + "&type=" + types;
     } else
 
-    console.log(endURL);
-
     endURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=true" + endURL;
 
-  /*  unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&includeIngredients=onions%2C+lettuce%2C+tomato&instructionsRequired=false&intolerances=peanut%2C+shellfish&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&query=burger&ranking=1&type=main+course")
-    .header("X-Mashape-Key", "sExkeLj1nvmshqHUbsHTOOYqORUcp19f2zDjsnbyeXK02jxgKw")
-    .header("Accept", "application/json")
-    .end(function (result) {
-      console.log(result.status, result.headers, result.body);
-    }); */
+    console.log(endURL);
+
+    $.ajax({
+         url: endURL,
+         type: "GET",
+         beforeSend: function(xhr){xhr.setRequestHeader('X-Mashape-Key', '5InmjaVBTlmshELCeDfhJIEkGSvgp1f4qI6jsnEHo4cgCNfcZT');},
+         success: function(result) {
+           console.log(result);
+           /*for (var x = 0; x < result.length; x++) {
+             JSON.parse(result[x]);
+         }*/
+           //document.getElementbyId("demo").innerHTML = result[id] + "<br>";
+         }
+      });
 
     return(endURL);
-
-  /*  <script>$.ajax({
-      unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=true" + endURL);
-      .header("X-Mashape-Key", "sExkeLj1nvmshqHUbsHTOOYqORUcp19f2zDjsnbyeXK02jxgKw");
-      .header("Accept", "application/json");
-      .end(function (result) {
-      console.log(result.status, result.headers, result.body); */
 
   }
