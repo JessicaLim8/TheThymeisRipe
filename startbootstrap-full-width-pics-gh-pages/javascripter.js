@@ -77,10 +77,11 @@ function displayOutput(allerg, dietres, mealchoices, donthave, have) {
          beforeSend: function(xhr){xhr.setRequestHeader('X-Mashape-Key', '5InmjaVBTlmshELCeDfhJIEkGSvgp1f4qI6jsnEHo4cgCNfcZT');},
          success: function(result) {
            console.log(result);
-            var recipe = [3];
-             recipe[0] = document.getElementById("title");
-             recipe[1] = document.getElementById("image");
-             recipe[2] = document.getElementById("spoonacularSourceUrl");
+             json = JSON.parse(result);
+             var recipe = [3];
+             recipe[0] = json.title;
+             recipe[1] = json.image;
+             recipe[2] = json.spoonacularSourceUrl;
              console.log(recipe[0]);
              console.log(recipe[1]);
              console.log(recipe[2]);
