@@ -79,9 +79,9 @@ function displayOutput(allerg, dietres, mealchoices, donthave, have) {
            console.log(result);
              var myJSON = JSON.stringify(result);
              var recipe = [3];
-             recipe[0] = JSON.title;
-             recipe[1] = JSON.image;
-             recipe[2] = JSON.spoonacularSourceUrl;
+             recipe[0] = JSON.results.0.title;
+             recipe[1] = JSON.results.0.image;
+             recipe[2] = JSON.results.0.spoonacularSourceUrl;
              console.log(recipe[0]);
              console.log(recipe[1]);
              console.log(recipe[2]);
