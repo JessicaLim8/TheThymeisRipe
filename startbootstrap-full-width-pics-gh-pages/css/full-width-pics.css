@@ -6,7 +6,7 @@
 
 body {
   padding-top: 54px;
-  background-color: #dfbe9f;
+  background-color: #ffcccc;
 }
 
 @media (min-width: 992px) {
@@ -37,13 +37,13 @@ h1
 }
 .navbar
 {
-	background-color: #7a4538;
+	background-color: #c00c27;
 	background-image: url("");
 }
 
 footer
 {
-	background-color: #7a4538;
+	background-color: #c00c27;
 	background-image: url("");
 }
 
