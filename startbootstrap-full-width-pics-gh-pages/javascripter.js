@@ -79,7 +79,7 @@ function displayOutput(allerg, dietres, mealchoices, donthave, have) {
            console.log(result);
              var recipe = [3];
              recipe[0] = document.getElementById("title").value;
-             recipe[1] = document.getElementById("image").value;
+             recipe[1] = result.getElementById("image").value;
              recipe[2] = document.getElementById("spoonacularSourceUrl").value;
              console.log(recipe[0]);
              console.log(recipe[1]);
