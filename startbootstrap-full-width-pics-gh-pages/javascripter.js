@@ -80,8 +80,8 @@ function displayOutput(allerg, dietres, mealchoices, donthave, have) {
              var myJSON = JSON.stringify(result);
              var recipe = [3];
              recipe[0] = JSON.title;
-             recipe[1] = result.getElementById("image").value;
-             recipe[2] = document.getElementById("spoonacularSourceUrl").value;
+             recipe[1] = JSON.image;
+             recipe[2] = JSON.spoonacularSourceUrl;
              console.log(recipe[0]);
              console.log(recipe[1]);
              console.log(recipe[2]);
