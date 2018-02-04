@@ -6,6 +6,7 @@
 
 body {
   padding-top: 54px;
+  background-color: #dfbe9f;
 }
 
 @media (min-width: 992px) {
@@ -20,4 +21,34 @@ body {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+}
+
+h1
+{
+	font-family:"Georgia Header", "Courier Header", "Garamond Header";
+	font-weight: bold;
+}
+
+.navbar-brand
+{
+	font-family:"Georgia Header", "Courier Header", "Garamond Header";
+	font-weight: bold;
+	
+}
+.navbar
+{
+	background-color: #7a4538;
+	background-image: url("");
+}
+
+footer
+{
+	background-color: #7a4538;
+	background-image: url("");
+}
+
+p
+{
+	font-family:"Georgia", "Courier", "Garamond";
+	font-weight: bold;
 }
