@@ -76,7 +76,7 @@ function displayOutput(allerg, dietres, mealchoices, donthave, have) {
          type: "GET",
          beforeSend: function(xhr){xhr.setRequestHeader('X-Mashape-Key', '5InmjaVBTlmshELCeDfhJIEkGSvgp1f4qI6jsnEHo4cgCNfcZT');},
          success: function(result) {
-           //console.log(result);
+           console.log(result);
             var recipe = [3];
              recipe[0] = document.getElementById("title");
              recipe[1] = document.getElementById("image");
