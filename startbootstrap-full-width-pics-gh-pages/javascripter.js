@@ -77,15 +77,13 @@ function displayOutput(allerg, dietres, mealchoices, donthave, have) {
          beforeSend: function(xhr){xhr.setRequestHeader('X-Mashape-Key', '5InmjaVBTlmshELCeDfhJIEkGSvgp1f4qI6jsnEHo4cgCNfcZT');},
          success: function(result) {
            //console.log(result);
-            var recipe - new array[3];
-             console.log("erm");
+            var recipe = new array[3];
              recipe[0] = result.getElementById("title");
              recipe[1] = result.getElementById("image");
              recipe[2] = result.getElementById("spoonacularSourceUrl");
-             console.log("erm");
+             return(recipe);
           }
       });
-    console.log("erm");
     return(endURL);
 
   }
